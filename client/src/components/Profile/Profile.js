@@ -4,6 +4,7 @@ import { useAppContext } from '../../store';
 import { useLoginCheck } from '../../utils/setAuthToken';
 import Sidebar from '../Sidebar/Sidebar';
 import { getplaces, deletePlace } from '../../utils/placeFunction'
+import { Link } from "react-router-dom";
 
 
 
@@ -76,6 +77,9 @@ const Profile = () => {
                             <p>{data.picture}</p>
                             <p>{data.activity}</p>
                             <p>{data.date}</p>
+                            <Link to={"/books/" + data._id}>
+                                <p>hello</p>
+                            </Link>
                             <button onClick={() => deleteItem(data._id)}>Delete</button>
                         </div>
                     ))}

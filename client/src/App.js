@@ -10,6 +10,7 @@ import Other from './components/pages/Other/Other';
 import Profile from './components/Profile/Profile';
 import StartUp from './components/pages/StartUp/StartUp';
 import Upload from './components/Upload/Upload'
+import Detail from './components/Detail/Detail'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AppContextProvider } from './store';
 import Auth from './Auth';
@@ -28,6 +29,9 @@ function App() {
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/profile" component={Profile} />
                         <Route exact path="/dashboard" component={Auth(Dashboard)} />
+                        <Route exact path="/books/:id">
+                            <Detail />
+                        </Route>
                         <Route exact path="/other" component={Other} />
                         <Route exact path="/startUp" component={StartUp} />
                         <Route exact path="/upload" component={Upload} />
