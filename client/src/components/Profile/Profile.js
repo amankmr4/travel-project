@@ -5,7 +5,7 @@ import { useLoginCheck } from '../../utils/setAuthToken';
 import Sidebar from '../Sidebar/Sidebar';
 import { getplaces, deletePlace } from '../../utils/placeFunction'
 import { Link } from "react-router-dom";
-
+import { Image } from 'cloudinary-react'
 
 
 const Profile = () => {
@@ -74,7 +74,8 @@ const Profile = () => {
                         <div id={data.key}>
                             <p>{data.first_name}  {data.last_name}</p>
                             <p>{data.location}</p>
-                            <p>{data.picture}</p>
+                            <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={data.picture} />
+
                             <p>{data.activity}</p>
                             <p>{data.date}</p>
                             <Link to={"/books/" + data._id}>
@@ -85,7 +86,7 @@ const Profile = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

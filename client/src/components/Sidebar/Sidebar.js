@@ -15,8 +15,15 @@ function Sidebar() {
                 </Link>
 
                 {/* Divider */}
-
+                <hr className="sidebar-divider d-none d-md-block" />
                 {/* Nav Item - Dashboard */}
+
+                <Item
+                    active={''}
+                    href={'/photoupload'}
+                    icon={<i className="fas fa-user-alt" />}
+                    text={<span>photoupload</span>}
+                />
 
 
                 {/* Divider */}

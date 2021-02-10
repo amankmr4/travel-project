@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useAppContext } from '../../store';
 import { useLoginCheck } from '../../utils/setAuthToken';
 import Sidebar from '../Sidebar/Sidebar'
+import axios from 'axios'
 
 
 
@@ -24,6 +25,8 @@ function Hello() {
 
     });
 
+    const [imageSelected, setImageSelected] = useState();
+
     const onChange = (e) => {
         setFormState({
             ...formState,
@@ -31,10 +34,23 @@ function Hello() {
         });
     }
 
+    const UploadImage = () => {
+        const formData = new FormData()
+        formData.append("file", imageSelected)
+        formData.append("upload_preset", "byphwu58")
+
+        axios.post("https://api.cloudinary.com/v1_1/akak94/image/upload", formData)
+            .then((response) => {
+                setFormState({ ...formState, picture: response.data.secure_url })
+                // history.push('/profile')
+            })
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(authState.user.first_name)
+        UploadImage();
         if (formState.location && formState.activity && formState.picture) {
+            UploadImage();
             const placeData = {
                 first_name: authState.user.first_name,
                 last_name: authState.user.last_name,
@@ -46,6 +62,7 @@ function Hello() {
             uploadFeed(placeData).then(() => {
                 history.push('/profile');
             });
+
         }
     }
 
@@ -82,17 +99,15 @@ function Hello() {
                                     onChange={onChange}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="picture">picture</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="picture"
-                                    placeholder="Enter picture"
-                                    value={formState.picture}
-                                    onChange={onChange}
-                                />
-                            </div>
+                            <input
+                                type="file"
+                                className="form-control"
+                                name="location"
+                                placeholder="Enter location"
+                                onChange={(event) => {
+                                    setImageSelected(event.target.files[0])
+                                }}
+                            />
                             <button type="submit" className="btn btn-lg btn-primary btn-block">
                                 Ready To Share
                         </button>

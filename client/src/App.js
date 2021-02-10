@@ -11,6 +11,7 @@ import Profile from './components/Profile/Profile';
 import StartUp from './components/pages/StartUp/StartUp';
 import Upload from './components/Upload/Upload'
 import Detail from './components/Detail/Detail'
+import PhotoUpload from './components/PhotoUpload/PhotoUpload'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AppContextProvider } from './store';
 import Auth from './Auth';
@@ -35,6 +36,7 @@ function App() {
                         <Route exact path="/other" component={Other} />
                         <Route exact path="/startUp" component={StartUp} />
                         <Route exact path="/upload" component={Upload} />
+                        <Route exact path="/photoupload" component={PhotoUpload} />
                     </div>
                 </div>
             </Router>

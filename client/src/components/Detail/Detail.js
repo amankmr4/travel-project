@@ -4,11 +4,10 @@ import { Link, useParams } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid/Grid";
 import Sidebar from '../Sidebar/Sidebar'
 import { getUserUploads } from '../../utils/placeFunction'
+import { Image } from 'cloudinary-react'
 
 function Detail(props) {
     const [formState, setFormState] = useState({
-
-
     });
 
     // When this component mounts, grab the book with the _id of props.match.params.id
@@ -29,7 +28,7 @@ function Detail(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formState)
+        console.log("hello")
     }
 
     return (
@@ -67,17 +66,9 @@ function Detail(props) {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="picture">picture</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="picture"
-                                    placeholder="Enter picture"
-                                    value={formState.picture}
-                                    onChange={onChange}
-                                />
+                                <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={formState.picture} />
                             </div>
-                            <button type="submit" className="btn btn-lg btn-primary btn-block" onClick={() => handleSubmit}>
+                            <button type="submit" className="btn btn-lg btn-primary btn-block">
                                 Ready To Share
                         </button>
                         </form>

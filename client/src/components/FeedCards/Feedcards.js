@@ -2,6 +2,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import { Image } from 'cloudinary-react'
 
 import CardContent from '@material-ui/core/CardContent';
 
@@ -38,7 +39,7 @@ export default function SimpleCard(props) {
                     {props.location}
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
-                    {props.picture}
+                    <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={props.picture} />
                 </Typography>
                 <Typography variant="body2" component="p">
                     {props.activity}
