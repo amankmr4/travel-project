@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { registerUser, getUsers } from '../../utils/userFunctions';
-import { checkFormFields } from './CheckFormFields';
+import { checkFormFields } from './checkFormFields';
 
 function Register(props) {
     const history = useHistory();
