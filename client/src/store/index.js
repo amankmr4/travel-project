@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { appReducer, appInitialState } from './AppStore';
+import { appReducer, appInitialState } from './appStore';
 
 const AppContext = createContext([
     appInitialState,
