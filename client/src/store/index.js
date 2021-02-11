@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { appReducer, appInitialState } from './appStore';
+import { appReducer, appInitialState } from './AppStore';
 
 const AppContext = createContext([
     appInitialState,
-    function dispatch() {},
+    function dispatch() { },
 ]);
 
 const { Provider } = AppContext;

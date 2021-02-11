@@ -37,11 +37,10 @@ app.use(
 
 app.use(express.static('public'));
 // DB Config
-const mongoURI = 'mongodb+srv://trilogy:trilogy@cluster0.u8m9s.mongodb.net/mernlogin?retryWrites=true&w=majority';
 
 // Connect to MongoDB
 mongoose
-    .connect(process.env.MONGODB_URI || mongoURI, {
+    .connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useFindAndModify: false,
     })

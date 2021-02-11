@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { uploadFeed } from '../../utils/placeFunction'
 import { useHistory } from 'react-router-dom';
 import { useAppContext } from '../../store';
@@ -15,6 +15,10 @@ function Hello() {
     useLoginCheck(appDispatch);
 
     const history = useHistory();
+
+    useEffect(() => {
+        UploadImage()
+    }, [])
 
 
 
