@@ -2,12 +2,12 @@ import axios from 'axios';
 
 
 export const getplaces = () => {
-    return axios.get('http://localhost:3001/api/place').then((res) => res.data);
+    return axios.get('/api/place').then((res) => res.data);
 };
 
 export const uploadFeed = (placeData) => {
 
-    return axios.post('http://localhost:3001/api/place', {
+    return axios.post('/api/place', {
         first_name: placeData.first_name,
         last_name: placeData.last_name,
         location: placeData.location,
@@ -19,7 +19,7 @@ export const uploadFeed = (placeData) => {
 
 export const getUserUploads = (userData) => {
     console.log("Testing")
-    return axios.get('http://localhost:3001/api/place/' + userData);
+    return axios.get('/api/place' + userData);
 
 }
 
