@@ -1,6 +1,8 @@
 .dashboardCard {
+    margin-left: 10;
     width: 60%;
     min-height: 400px;
+    text-align: center;
 }
 
 .bottomLink {

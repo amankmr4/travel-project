@@ -6,10 +6,17 @@ import './style.css';
 function Roster() {
     return (
         <div className="container-fluid h-100 p-0 m-0">
-            <Sidebar />
-            <div className="content">
-                <DashboardNewsCard />
+            <div className="row">
+                <div className="col-lg-1">
+                    <Sidebar />
+                </div>
+                <div className="content col-lg-8">
+                    <DashboardNewsCard />
+                </div>
             </div>
+            {/* <div className="content">
+                <DashboardNewsCard />
+            </div> */}
         </div>
     );
 }

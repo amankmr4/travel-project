@@ -1,13 +1,17 @@
 .backgroundImg {
-    background-image: url(../../assets/images/landingpagebackgroundimg.jpg);
+    background-image: url(https://media.apnarm.net.au/media/images/2020/07/25/v3imagesbin8af294b5163810091b41302a6607ceb5-clz3j96uva2edqjgqu2.jpg);
     background-size:     cover;                  
     background-repeat:   no-repeat;
     background-position: center center;
+    height: 100;
 }
 
 .landingJumbo {
+    height: 1010%;
     width: 60%;
-    background-color: rgba(204, 204, 204, 0.6) !important;
+    background-color: transparent !important;
+    opacity: 1;
+ 
 }
 
 .cardBackground{
@@ -21,10 +25,6 @@
 
 .companyName {
     font-size: 5vw;
-}
-
-.companySlogan {
-    font-size: 3vw;
 }
 
 .fa-stack {

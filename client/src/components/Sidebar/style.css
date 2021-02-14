@@ -1,5 +1,6 @@
 aside
 {
+    width: 50%;
     height: 100%; /* Full-height: remove this if you want "auto" height */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
@@ -17,7 +18,7 @@ aside
 
 span{
     color: black;
-    text-align: center;
+    text-align: left;
     padding: auto;
 }
 
