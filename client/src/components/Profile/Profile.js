@@ -6,27 +6,31 @@ import Sidebar from '../Sidebar/Sidebar';
 import { getplaces, deletePlace } from '../../utils/placeFunction'
 import { Link } from "react-router-dom";
 import { Image } from 'cloudinary-react'
+import { Grid, Paper } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
+
+
+
+const useStyles = makeStyles(() => ({
+    grid: {
+        width: '100%',
+        margin: '0px'
+    }
+}))
+
 
 
 const Profile = () => {
     const [authState, appDispatch] = useAppContext();
     const [places, setPlaces] = useState([])
+    const classes = useStyles();
+
 
     useLoginCheck(appDispatch);
-
-
-
-
 
     useEffect(() => {
         loadPlaces()
     }, [])
-
-    const onClick = (event) => {
-        event.preventDefault();
-        console.log(filteredData)
-    }
-
 
     const deleteItem = (hello) => {
         deletePlace(hello).then(() => {
@@ -46,48 +50,57 @@ const Profile = () => {
     })
 
     return (
-        <div className="pl-0 m-0 container-fluid">
-            <Sidebar />
-            <div className="flex-row-reverse mt-5 mr-5 d-flex">
-                <div className="col-xs-12 col-sm-12 col-md-9 jumbotron jumbotron-fluid cardBackground">
-                    <div className="mx-auto col-sm-8">
-                        <h1 className="text-center">PROFILE</h1>
-                    </div>
-                    <table className="table mx-auto col-md-6">
-                        <tbody>
-                            <tr>
-                                <td>First Name</td>
-                                <td>{authState.user.first_name}</td>
-                            </tr>
-                            <tr>
-                                <td>Last Name</td>
-                                <td>{authState.user.last_name}</td>
-                            </tr>
-                            <tr>
-                                <td>Email</td>
-                                <td>{authState.user.email}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button onClick={onClick}>Console log</button>
-                    {filteredData.map(data => (
-                        <div id={data.key}>
-                            <p>{data.first_name}  {data.last_name}</p>
-                            <p>{data.location}</p>
-                            <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={data.picture} />
+        <Grid container spacing={2} className={classes.grid} >
+            <Grid item xs={2}>
+                <Paper><Sidebar /></Paper>
+            </Grid>
+            <Grid item xs={8}>
+                <Paper>
+                    <div>
+                        <div>
 
-                            <p>{data.activity}</p>
-                            <p>{data.date}</p>
-                            <Link to={"/books/" + data._id}>
-                                <p>hello</p>
-                            </Link>
-                            <button onClick={() => deleteItem(data._id)}>Delete</button>
+
+                            <table className="table">
+                                <tbody>
+                                    <tr>
+                                        <td>First Name</td>
+                                        <td>{authState.user.first_name}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name</td>
+                                        <td>{authState.user.last_name}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{authState.user.email}</td>
+                                    </tr>
+                                </tbody>
+
+
+                            </table>
+
+                            {filteredData.map(data => (
+                                <div id={data.key}>
+                                    <p>{data.first_name}  {data.last_name}</p>
+                                    <p>{data.location}</p>
+                                    <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={data.picture} />
+
+                                    <p>{data.activity}</p>
+                                    <p>{data.date}</p>
+                                    <Link to={"/books/" + data._id}>
+                                        <p>hello</p>
+                                    </Link>
+                                    <button onClick={() => deleteItem(data._id)}>Delete</button>
+                                </div>))}
                         </div>
-                    ))}
-                </div>
-            </div>
-        </div >
-    );
+                    </div>
+
+                </Paper>
+            </Grid>
+        </Grid >
+    )
+
+
 }
 
 export default Profile;
