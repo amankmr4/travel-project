@@ -46,7 +46,7 @@ const Profile = () => {
     })
 
     return (
-        <Container fluid>
+        <Container fluid className="containerstyle">
             <div className="fullBody">
                 <Row>
                     <Col sm={2}><Sidebar className="rounded mx-auto d-block"></Sidebar></Col>
@@ -60,12 +60,12 @@ const Profile = () => {
 
                                 </div>
                                 {filteredData.map(data => (
-                                    <div id={data.key} className="cardout m-3">
-                                        <Card className="text-center mt-4">
+                                    <div id={data.key} className="cardout m-3 cardStyle">
+                                        <Card className="text-center mt-4 ">
                                             <Card.Header>Posted by:{data.first_name} {data.last_name} </Card.Header>
                                             <Card.Body>
-                                                <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={data.picture} />
-                                                <Card.Text>
+                                                <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={data.picture} className="cardStyle" />
+                                                <Card.Text className="mt-3">
                                                     <p>{data.activity}</p>
                                                     <p>{data.location}</p>
                                                     <Link to={"/books/" + data._id}>
@@ -74,7 +74,7 @@ const Profile = () => {
                                                 </Card.Text>
                                                 <Button onClick={() => deleteItem(data._id)}>Delete your Post</Button>
                                             </Card.Body>
-                                            <Card.Footer className="text-muted">Posted On: {data.date}</Card.Footer>
+                                            <Card.Footer className="text-muted">Posted At: {data.date}</Card.Footer>
                                         </Card>
                                     </div>))}
                             </div>

@@ -76,7 +76,7 @@ function Hello() {
     return (
 
 
-        <Container fluid>
+        <Container fluid className="containerstyle" style={{ height: "100%" }}>
 
 
             <Row>
@@ -84,7 +84,7 @@ function Hello() {
                 <Col sm={8}>
                     <h1>Hi! Welcome {authState.user.first_name} {authState.user.last_name}.
                 Are you Ready To Tell Everyone About Your Adventure</h1>
-                    <form noValidate onSubmit={handleSubmit} className="subForm">
+                    <form noValidate onSubmit={handleSubmit} className="subForm mb-5">
                         <h1 className="mb-3 h3 font-weight normal">Upload Your Adventure</h1>
                         <div className="form-group mb-3">
                             <label htmlFor="location">Location</label>

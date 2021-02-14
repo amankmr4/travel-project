@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 function Roster() {
     return (
-        <Container fluid>
+        <Container fluid className="containerstyle">
             <Row>
                 <Col sm={2}>
                     <Sidebar className="body" />

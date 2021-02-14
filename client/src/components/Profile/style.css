@@ -7,3 +7,14 @@
     font-size: 35px;
 }
 
+.cardStyle{
+    -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, -1px 2px 4px 9px rgba(0,0,0,0.22); 
+box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, -1px 2px 4px 9px rgba(0,0,0,0.22);
+}
+
+.cardTxt{
+    font-family: 'Truculenta', sans-serif;
+}
+
+
+
