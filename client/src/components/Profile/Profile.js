@@ -81,24 +81,21 @@ const Profile = () => {
     })
 
     return (
-        <div id="container-fluid" className="body">
-            <div class="row">
-                <div class="col-sm-2"><Sidebar></Sidebar></div>
-                <div class="col-sm-10">
+        <div id="container-fluid" >
+            <div className="row">
+                <div className="col-sm-2 body"><Sidebar></Sidebar></div>
+                <div className="col-sm-10 mainBody">
                     <div>
 
                         <div className="jumbotron" id="intro">
-                            <h1 className="display-4">Hello, {authState.user.first_name} {authState.user.last_name}</h1>
+                            <p className="display-4">Hello, {authState.user.first_name} {authState.user.last_name}</p>
                             <p className="lead text-center">Here you will be able to see all your posts</p>
 
                         </div>
                         {filteredData.map(data => (
                             <div id={data.key}>
-                                <Card className={classes.root} id={data.key}>
+                                <Card className={classes.root}>
                                     <CardContent className={classes.cardStyle}>
-                                        <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                            {authState.user.first_name} {authState.user.last_name}
-                                        </Typography>
                                         <Typography variant="h5" component="h2">
                                             {data.location}
                                         </Typography>

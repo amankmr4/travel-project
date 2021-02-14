@@ -6,6 +6,7 @@ import { useAppContext } from '../../store';
 import { useLoginCheck } from '../../utils/setAuthToken';
 import Sidebar from '../Sidebar/Sidebar'
 import axios from 'axios'
+import './style.css';
 
 
 
@@ -73,16 +74,20 @@ function Hello() {
 
     return (
         <div>
-            <Sidebar />
-            <div className="container">
-                <h1>Hi! Welcome {authState.user.first_name} {authState.user.last_name}.
-                Are you Ready To Tell Everyone About Your Adventure</h1>
+
+            <div className="container-fluid">
+
 
                 <div className="row">
-                    <div className="mx-auto mt-5 col-md-6">
-                        <form noValidate onSubmit={handleSubmit}>
+                    <div className="col-sm-2 body">
+                        <Sidebar />
+                    </div>
+                    <div className="col-sm-10">
+                        <h1>Hi! Welcome {authState.user.first_name} {authState.user.last_name}.
+                Are you Ready To Tell Everyone About Your Adventure</h1>
+                        <form noValidate onSubmit={handleSubmit} className="subForm">
                             <h1 className="mb-3 h3 font-weight normal">Upload Your Adventure</h1>
-                            <div className="form-group">
+                            <div className="form-group mb-3">
                                 <label htmlFor="location">Location</label>
                                 <input
                                     type="text"
@@ -106,7 +111,7 @@ function Hello() {
                             </div>
                             <input
                                 type="file"
-                                className="form-control"
+                                className="form-control mb-3"
                                 name="location"
                                 placeholder="Enter location"
                                 onChange={(event) => {

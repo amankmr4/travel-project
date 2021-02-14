@@ -15,11 +15,14 @@ aside
 }
 
 
-span{
-    color: black;
-    text-align: left;
+.span{
+    color: rgb(133, 16, 243);
+    font-family: 'Ranchers', cursive;
 }
-
 #hello{
     color: black;
 }
+
+.fa-calendar-week {
+    background: rgb(109, 4, 4);
+  }

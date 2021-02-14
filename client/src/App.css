@@ -45,5 +45,6 @@ h5 {
     font-size: 20px;
 }
 
-/* These rules take effect when the browser's width */
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@900&display=swap');/* These rules take effect when the browser's width */
 /* is either 225px or more. */
