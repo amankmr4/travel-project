@@ -72,6 +72,7 @@ const Profile = () => {
                                                         <a>To see this post</a>
                                                     </Link>
                                                 </Card.Text>
+                                                <Button onClick={() => deleteItem(data._id)}>Delete your Post</Button>
                                             </Card.Body>
                                             <Card.Footer className="text-muted">Posted On: {data.date}</Card.Footer>
                                         </Card>
