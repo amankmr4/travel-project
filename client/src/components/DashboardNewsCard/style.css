@@ -9,3 +9,6 @@
     position: absolute; 
     bottom: 5px; 
 }
+.cardbackGround{
+    background-color: blue;
+}

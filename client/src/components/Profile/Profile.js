@@ -7,56 +7,20 @@ import Sidebar from '../Sidebar/Sidebar';
 import { getplaces, deletePlace } from '../../utils/placeFunction'
 import { Link } from "react-router-dom";
 import { Image } from 'cloudinary-react'
-import { makeStyles } from "@material-ui/core/styles"
 import './style.css';
-import CardContent from '@material-ui/core/CardContent';
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
-import { Button, Container, Row, Col } from 'react-bootstrap'
+import { Button, Container, Row, Col, Card } from 'react-bootstrap'
 
 
 
 
-const useStyles = makeStyles((theme) => ({
-    grid: {
-        width: '100%',
-        height: '100%',
-        background: theme.palette.success.light,
-        marginBottom: "auto",
-    },
-    root: {
-        minWidth: 275,
-        margin: 5,
-        textAlign: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
-        shadowOpacity: 0.32,
-        shadowRadius: 5.46,
 
-        elevation: 9,
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-}))
 
 
 
 const Profile = () => {
     const [authState, appDispatch] = useAppContext();
     const [places, setPlaces] = useState([])
-    const classes = useStyles();
+
 
 
     useLoginCheck(appDispatch);
@@ -97,36 +61,19 @@ const Profile = () => {
                                 </div>
                                 {filteredData.map(data => (
                                     <div id={data.key} className="cardout m-3">
-                                        <Card className={classes.root}>
-                                            <CardContent className={classes.cardStyle}>
-                                                <Typography variant="h5" component="h2">
-                                                    {data.location}
-                                                </Typography>
-                                                <Typography className={classes.pos} color="textSecondary">
-                                                    <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={data.picture} />
-                                                </Typography>
-                                                <Typography variant="body2" component="p">
-                                                    {data.activity}
-                                                    <br />
-
-                                                </Typography>
-                                                <Typography variant="body2" component="p">
-                                                    {data.date}
-                                                    <br />
-
-                                                </Typography>
-                                                <Typography variant="body2" component="p">
+                                        <Card className="text-center mt-4">
+                                            <Card.Header>Posted by:{data.first_name} {data.last_name} </Card.Header>
+                                            <Card.Body>
+                                                <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={data.picture} />
+                                                <Card.Text>
+                                                    <p>{data.activity}</p>
+                                                    <p>{data.location}</p>
                                                     <Link to={"/books/" + data._id}>
                                                         <a>To see this post</a>
                                                     </Link>
-                                                    <br />
-                                                </Typography>
-                                                <Typography variant="body2" component="p">
-                                                    <Button className="m-5" onClick={() => deleteItem(data._id)}>Delete</Button>
-                                                    <br />
-                                                </Typography>
-                                            </CardContent>
-
+                                                </Card.Text>
+                                            </Card.Body>
+                                            <Card.Footer className="text-muted">Posted On: {data.date}</Card.Footer>
                                         </Card>
                                     </div>))}
                             </div>

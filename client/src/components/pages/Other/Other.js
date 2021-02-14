@@ -9,7 +9,6 @@ function Roster() {
             <Row>
                 <Col sm={2}>
                     <Sidebar className="body" />
-
                 </Col>
                 <Col sm={8}>
                     {/* <div className="content col-sm-10">
@@ -17,6 +16,7 @@ function Roster() {
                 </div>
             </div> */}
                     <div className="content">
+                        <h1>Let's See What People Are Up Too?</h1>
                         <DashboardNewsCard />
                     </div>
                 </Col>

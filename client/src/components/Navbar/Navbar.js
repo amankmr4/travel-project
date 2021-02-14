@@ -39,7 +39,7 @@ function Navbar() {
             </li>
             <li>
                 <Link className="mb-1 mr-1 btn btn-sm active" to="/other">
-                    Dashboard
+                    Feed
                 </Link>
             </li>
             <li>

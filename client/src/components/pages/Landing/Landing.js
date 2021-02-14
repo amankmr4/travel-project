@@ -9,14 +9,12 @@ function Landing() {
         <Container fluid>
             <Row>
                 <Col>
-                    <h1 className="header display-1">Welcome To "Great Backyard"
-                     <Image src="https://www.bcf.com.au/on/demandware.static/-/Library-Sites-bcf-shared-library/default/dw1c736d01/images/home-page/tiles/grid/Seaside_Fishing_Men_Sunset_Fishing-QUARTERTILE.jpg" fluid /> </h1>
-
+                    <h1 className="header display-1">Welcome To "Great Escape"
+                        <Image src="https://www.bcf.com.au/on/demandware.static/-/Library-Sites-bcf-shared-library/default/dw1c736d01/images/home-page/tiles/grid/Seaside_Fishing_Men_Sunset_Fishing-QUARTERTILE.jpg" fluid /> </h1>
                 </Col>
             </Row>
             <Row>
                 <Col>
-
                     <BrandDescription />
                 </Col>
             </Row>
