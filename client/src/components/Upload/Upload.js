@@ -7,6 +7,7 @@ import { useLoginCheck } from '../../utils/setAuthToken';
 import Sidebar from '../Sidebar/Sidebar'
 import axios from 'axios'
 import './style.css';
+import { Container, Row, Col } from 'react-bootstrap'
 
 
 
@@ -73,59 +74,57 @@ function Hello() {
     }
 
     return (
-        <div>
-
-            <div className="container-fluid">
 
 
-                <div className="row">
-                    <div className="col-sm-2 body">
-                        <Sidebar />
-                    </div>
-                    <div className="col-sm-10">
-                        <h1>Hi! Welcome {authState.user.first_name} {authState.user.last_name}.
+        <Container fluid>
+
+
+            <Row>
+                <Col sm={2}><Sidebar></Sidebar></Col>
+                <Col sm={8}>
+                    <h1>Hi! Welcome {authState.user.first_name} {authState.user.last_name}.
                 Are you Ready To Tell Everyone About Your Adventure</h1>
-                        <form noValidate onSubmit={handleSubmit} className="subForm">
-                            <h1 className="mb-3 h3 font-weight normal">Upload Your Adventure</h1>
-                            <div className="form-group mb-3">
-                                <label htmlFor="location">Location</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="location"
-                                    placeholder="Enter location"
-                                    value={formState.location}
-                                    onChange={onChange}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="activity">Activity</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="activity"
-                                    placeholder="Enter activity"
-                                    value={formState.activity}
-                                    onChange={onChange}
-                                />
-                            </div>
+                    <form noValidate onSubmit={handleSubmit} className="subForm">
+                        <h1 className="mb-3 h3 font-weight normal">Upload Your Adventure</h1>
+                        <div className="form-group mb-3">
+                            <label htmlFor="location">Location</label>
                             <input
-                                type="file"
-                                className="form-control mb-3"
+                                type="text"
+                                className="form-control"
                                 name="location"
                                 placeholder="Enter location"
-                                onChange={(event) => {
-                                    setImageSelected(event.target.files[0])
-                                }}
+                                value={formState.location}
+                                onChange={onChange}
                             />
-                            <button type="submit" className="btn btn-lg btn-primary btn-block">
-                                Ready To Share
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="activity">Activity</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="activity"
+                                placeholder="Enter activity"
+                                value={formState.activity}
+                                onChange={onChange}
+                            />
+                        </div>
+                        <input
+                            type="file"
+                            className="form-control mb-3"
+                            name="location"
+                            placeholder="Enter location"
+                            onChange={(event) => {
+                                setImageSelected(event.target.files[0])
+                            }}
+                        />
+                        <button type="submit" className="btn btn-lg btn-primary btn-block">
+                            Ready To Share
                         </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </form>
+                </Col>
+            </Row>
+        </Container >
+
     );
 
 }

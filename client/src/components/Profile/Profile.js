@@ -84,8 +84,8 @@ const Profile = () => {
     return (
         <Container fluid>
             <Row>
-                <Col sm={3}><Sidebar className="body"></Sidebar></Col>
-                <Col sm={9}>
+                <Col sm={2}><Sidebar className="body"></Sidebar></Col>
+                <Col sm={8}>
                     <div className="col-sm-10 mainBody">
                         <div>
 
