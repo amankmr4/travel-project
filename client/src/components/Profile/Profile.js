@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { useAppContext } from '../../store';
@@ -6,16 +7,38 @@ import Sidebar from '../Sidebar/Sidebar';
 import { getplaces, deletePlace } from '../../utils/placeFunction'
 import { Link } from "react-router-dom";
 import { Image } from 'cloudinary-react'
-import { Grid, Paper } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
+import './style.css';
+import CardContent from '@material-ui/core/CardContent';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
 
 
 
-const useStyles = makeStyles(() => ({
+
+const useStyles = makeStyles((theme) => ({
     grid: {
         width: '100%',
-        margin: '0px'
-    }
+        height: '100%',
+        background: theme.palette.success.light,
+        marginBottom: "auto",
+    },
+    root: {
+        minWidth: 275,
+        margin: 5,
+        textAlign: "center",
+    },
+    bullet: {
+        display: 'inline-block',
+        margin: '0 2px',
+        transform: 'scale(0.8)',
+    },
+    title: {
+        fontSize: 14,
+    },
+    pos: {
+        marginBottom: 12,
+    },
 }))
 
 
@@ -35,7 +58,6 @@ const Profile = () => {
     const deleteItem = (hello) => {
         deletePlace(hello).then(() => {
             loadPlaces()
-
         })
     }
 
@@ -50,54 +72,59 @@ const Profile = () => {
     })
 
     return (
-        <Grid container spacing={2} className={classes.grid} >
-            <Grid item xs={2}>
-                <Paper><Sidebar /></Paper>
-            </Grid>
-            <Grid item xs={8}>
-                <Paper>
+        <div id="container-fluid" className="body">
+            <div class="row">
+                <div class="col-sm-2"><Sidebar></Sidebar></div>
+                <div class="col-sm-10">
                     <div>
-                        <div>
 
+                        <div className="jumbotron" id="intro">
+                            <h1 className="display-4">Hello, {authState.user.first_name} {authState.user.last_name}</h1>
+                            <p className="lead text-center">Here you will be able to see all your posts</p>
 
-                            <table className="table">
-                                <tbody>
-                                    <tr>
-                                        <td>First Name</td>
-                                        <td>{authState.user.first_name}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Last Name</td>
-                                        <td>{authState.user.last_name}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>{authState.user.email}</td>
-                                    </tr>
-                                </tbody>
-
-
-                            </table>
-
-                            {filteredData.map(data => (
-                                <div id={data.key}>
-                                    <p>{data.first_name}  {data.last_name}</p>
-                                    <p>{data.location}</p>
-                                    <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={data.picture} />
-
-                                    <p>{data.activity}</p>
-                                    <p>{data.date}</p>
-                                    <Link to={"/books/" + data._id}>
-                                        <p>hello</p>
-                                    </Link>
-                                    <button onClick={() => deleteItem(data._id)}>Delete</button>
-                                </div>))}
                         </div>
-                    </div>
+                        {filteredData.map(data => (
+                            <div id={data.key}>
+                                <Card className={classes.root} id={data.key}>
+                                    <CardContent>
+                                        <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                            {authState.user.first_name} {authState.user.last_name}
+                                        </Typography>
+                                        <Typography variant="h5" component="h2">
+                                            {data.location}
+                                        </Typography>
+                                        <Typography className={classes.pos} color="textSecondary">
+                                            <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={data.picture} />
+                                        </Typography>
+                                        <Typography variant="body2" component="p">
+                                            {data.activity}
+                                            <br />
 
-                </Paper>
-            </Grid>
-        </Grid >
+                                        </Typography>
+                                        <Typography variant="body2" component="p">
+                                            {data.date}
+                                            <br />
+
+                                        </Typography>
+                                        <Typography variant="body2" component="p">
+                                            <Link to={"/books/" + data._id}>
+                                                <a>To see this post</a>
+                                            </Link>
+                                            <br />
+                                        </Typography>
+                                        <Typography variant="body2" component="p">
+                                            <button className="m-5" onClick={() => deleteItem(data._id)}>Delete</button>
+                                            <br />
+                                        </Typography>
+                                    </CardContent>
+
+                                </Card>
+                            </div>))}
+                    </div>
+                </div>
+            </div>
+
+        </div>
     )
 
 

@@ -19,7 +19,7 @@ export const uploadFeed = (placeData) => {
 
 export const getUserUploads = (userData) => {
     console.log("Testing")
-    return axios.get('/api/place' + userData);
+    return axios.get('/api/place/' + userData).then((res) => res.data);
 
 }
 

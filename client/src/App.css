@@ -1,0 +1,49 @@
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+}
+
+html, body {
+    --hue: var(--hue-neutral);
+    height: 100%;
+    margin: 0;
+}
+
+h1 {
+    font-family: "Calibri", "Georgia", "Times New Roman", Times, serif;
+    color: #212121;
+    margin: 0;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 28px;
+}
+
+h3 {
+    font-family: "Calibri", "Georgia", "Times New Roman", Times, serif;
+    color: #333333;
+    margin-left: 10px;
+    text-align: left;
+    padding-top: 20px;
+    /* padding-bottom: 20px; */
+    font-size: 28px;
+}
+
+h5 {
+    font-family: "Calibri", Verdana, "Geneva", sans-serif;;
+    color: #212121;
+    margin-left: 10px;
+    text-align: center;
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+    font-size: 20px;
+}
+
+/* These rules take effect when the browser's width */
+/* is either 225px or more. */
