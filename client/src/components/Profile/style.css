@@ -3,3 +3,14 @@
     font-family: 'Passion One', cursive;
     color: black;
 }
+#desc{
+    font-family: 'Jomhuria', cursive;
+    font-size: 35px;
+}
+
+.cardout{
+    
+        -webkit-box-shadow: -6px -4px 15px 5px #000000; 
+        box-shadow: -6px -4px 15px 5px #000000;
+
+}

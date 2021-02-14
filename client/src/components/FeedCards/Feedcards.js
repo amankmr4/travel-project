@@ -45,12 +45,11 @@ export default function SimpleCard(props) {
                 <Typography variant="body2" component="p">
                     {props.activity}
                     <br />
-                    {'"a benevolent smile"'}
                 </Typography>
                 <Typography variant="body2" component="p">
                     {props.date}
                     <br />
-                    {'"a benevolent smile"'}
+
                 </Typography>
             </CardContent>
 
