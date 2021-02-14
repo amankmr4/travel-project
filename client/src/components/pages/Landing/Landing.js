@@ -1,14 +1,26 @@
 import React from 'react';
 import './style.css';
 import BrandDescription from '../../BrandDescription/BrandDescription';
+import { Image, Container, Row, Col } from 'react-bootstrap'
 
 
 function Landing() {
     return (
-        <div className="container-fluid p-0 m-0">
-            <BrandDescription />
+        <Container fluid>
+            <Row>
+                <Col>
+                    <h1 className="header display-1">Welcome To Travel Aus
+                         <p>Where you tell "Aus" how you travel</p>
+                        <Image src="https://www.bcf.com.au/on/demandware.static/-/Library-Sites-bcf-shared-library/default/dw1c736d01/images/home-page/tiles/grid/Seaside_Fishing_Men_Sunset_Fishing-QUARTERTILE.jpg" fluid /> </h1>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
 
-        </div>
+                    <BrandDescription />
+                </Col>
+            </Row>
+        </Container>
     );
 }
 

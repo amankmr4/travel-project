@@ -83,55 +83,57 @@ const Profile = () => {
 
     return (
         <Container fluid>
-            <Row>
-                <Col sm={2}><Sidebar className="body"></Sidebar></Col>
-                <Col sm={8}>
-                    <div className="col-sm-10 mainBody">
-                        <div>
+            <div className="fullBody">
+                <Row>
+                    <Col sm={2}><Sidebar className="rounded mx-auto d-block"></Sidebar></Col>
+                    <Col sm={8}>
+                        <div className="col-sm-10 mainBody">
+                            <div>
 
-                            <div className="jumbotron" >
-                                <p className="display-4" id="intro">Hello, {authState.user.first_name} {authState.user.last_name}</p>
-                                <p className="lead text-center" id="desc">Here you will be able to see all your posts</p>
+                                <div className="jumbotron" >
+                                    <p className="display-4" id="intro">Hello, {authState.user.first_name} {authState.user.last_name}</p>
+                                    <p className="lead text-center" id="desc">Here you will be able to see all your posts</p>
 
+                                </div>
+                                {filteredData.map(data => (
+                                    <div id={data.key} className="cardout m-3">
+                                        <Card className={classes.root}>
+                                            <CardContent className={classes.cardStyle}>
+                                                <Typography variant="h5" component="h2">
+                                                    {data.location}
+                                                </Typography>
+                                                <Typography className={classes.pos} color="textSecondary">
+                                                    <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={data.picture} />
+                                                </Typography>
+                                                <Typography variant="body2" component="p">
+                                                    {data.activity}
+                                                    <br />
+
+                                                </Typography>
+                                                <Typography variant="body2" component="p">
+                                                    {data.date}
+                                                    <br />
+
+                                                </Typography>
+                                                <Typography variant="body2" component="p">
+                                                    <Link to={"/books/" + data._id}>
+                                                        <a>To see this post</a>
+                                                    </Link>
+                                                    <br />
+                                                </Typography>
+                                                <Typography variant="body2" component="p">
+                                                    <Button className="m-5" onClick={() => deleteItem(data._id)}>Delete</Button>
+                                                    <br />
+                                                </Typography>
+                                            </CardContent>
+
+                                        </Card>
+                                    </div>))}
                             </div>
-                            {filteredData.map(data => (
-                                <div id={data.key} className="cardout m-3">
-                                    <Card className={classes.root}>
-                                        <CardContent className={classes.cardStyle}>
-                                            <Typography variant="h5" component="h2">
-                                                {data.location}
-                                            </Typography>
-                                            <Typography className={classes.pos} color="textSecondary">
-                                                <Image style={{ width: 200, height: 200 }} cloudName="akak94" publicId={data.picture} />
-                                            </Typography>
-                                            <Typography variant="body2" component="p">
-                                                {data.activity}
-                                                <br />
-
-                                            </Typography>
-                                            <Typography variant="body2" component="p">
-                                                {data.date}
-                                                <br />
-
-                                            </Typography>
-                                            <Typography variant="body2" component="p">
-                                                <Link to={"/books/" + data._id}>
-                                                    <a>To see this post</a>
-                                                </Link>
-                                                <br />
-                                            </Typography>
-                                            <Typography variant="body2" component="p">
-                                                <Button className="m-5" onClick={() => deleteItem(data._id)}>Delete</Button>
-                                                <br />
-                                            </Typography>
-                                        </CardContent>
-
-                                    </Card>
-                                </div>))}
                         </div>
-                    </div>
-                </Col>
-            </Row>
+                    </Col>
+                </Row>
+            </div>
         </Container >
     )
 
