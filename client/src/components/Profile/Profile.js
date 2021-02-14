@@ -27,6 +27,15 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 275,
         margin: 5,
         textAlign: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.32,
+        shadowRadius: 5.46,
+
+        elevation: 9,
     },
     bullet: {
         display: 'inline-block',
@@ -86,7 +95,7 @@ const Profile = () => {
                         {filteredData.map(data => (
                             <div id={data.key}>
                                 <Card className={classes.root} id={data.key}>
-                                    <CardContent>
+                                    <CardContent className={classes.cardStyle}>
                                         <Typography className={classes.title} color="textSecondary" gutterBottom>
                                             {authState.user.first_name} {authState.user.last_name}
                                         </Typography>
