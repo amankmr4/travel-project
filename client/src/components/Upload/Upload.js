@@ -76,7 +76,7 @@ function Hello() {
     return (
 
 
-        <Container fluid className="containerstyle" style={{ height: "100%" }}>
+        <Container fluid className="containerstyle">
 
 
             <Row>

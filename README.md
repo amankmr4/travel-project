@@ -20,8 +20,12 @@ So we are able to share our adventures for free
 
 ## Project Screenshots
 
-![screentshot 1](screenshot1.JPG)
-
+![feed](./client/public/assests/feed.jpg)
+![landing](./client/public/assests/landing.jpg)
+![login](./client/public/assests/login.jpg)
+![profile](./client/public/assests/profile.jpg)
+![register](./client/public/assests/register.jpg)
+![upload](./client/public/assests/upload.jpg)
 ## Deployed App
 
 Deoplyed App Link : https://hello-bud.herokuapp.com/
