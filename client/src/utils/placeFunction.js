@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 export const getplaces = () => {
-    return axios.get('/api/place').then((res) => res.data);
+    return axios.get('https://hello-bud.herokuapp.com/api/place').then((res) => res.data);
 };
 
 export const uploadFeed = (placeData) => {
@@ -19,14 +19,14 @@ export const uploadFeed = (placeData) => {
 
 export const getUserUploads = (userData) => {
     console.log("Testing")
-    return axios.get('/api/place/' + userData).then((res) => res.data);
+    return axios.get('https://hello-bud.herokuapp.com/api/place/' + userData).then((res) => res.data);
 
 }
 
 
 export const deletePlace = (placeId) => {
     return axios
-        .delete("/api/place/" + placeId, {
+        .delete("https://hello-bud.herokuapp.com/api/place/" + placeId, {
         })
         .then(response => {
             return response.data
