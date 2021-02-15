@@ -11,8 +11,6 @@ const app = express();
 const dotenv = require('dotenv');
 
 
-
-
 dotenv.config();
 
 const PORT = process.env.PORT || 3001;
@@ -37,10 +35,11 @@ app.use(
 
 app.use(express.static('public'));
 // DB Config
+const mongoURI = process.env.MONGODB_URI
 
 // Connect to MongoDB
 mongoose
-    .connect(process.env.MONGODB_URI, {
+    .connect(process.env.MONGODB_URI || mongoURI, {
         useNewUrlParser: true,
         useFindAndModify: false,
     })
